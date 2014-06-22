@@ -9,7 +9,7 @@ StorageHelper is a helper class for Windows Phone and Windows apps to easily sav
 ### Windows Phone Silverlight
 
 * In Windows Phone Silverlight projects, use the following syntax
-  * NOTE: The persistent storage APIs use the [LocalFolder] (http://msdn.microsoft.com/en-US/library/windows/apps/windows.storage.applicationdata.localfolder.aspx)/[LocalSettings] (http://msdn.microsoft.com/en-US/library/windows/apps/windows.storage.applicationdata.localsettings.aspx) containers for Silverlight apps
+  * NOTE: The persistent storage APIs use the [LocalFolder] (http://msdn.microsoft.com/en-US/library/windows/apps/windows.storage.applicationdata.localfolder.aspx) container for Silverlight apps
 ```csharp
 // Use the application state dictionary (temporary storage)
 Storage.SaveState("MYKEY", MYOBJ);
@@ -22,11 +22,6 @@ Storage.DeleteState("MYKEY");
 [await] Storage.LoadAsync<TYPE>("MYKEY");
 [await] Storage.LoadAsync<TYPE>("MYKEY", true); // use JSON
 [await] Storage.DeleteAsync("MYKEY");
-
-// Use the persistent settings storage (using dictionary)
-Storage.SaveSetting("MYKEY", MYOBJ);
-Storage.LoadSetting("MYKEY");
-Storage.DeleteSetting("MYKEY");
 ```
 
 ### Windows Store (Windows 8.1, Windows Phone 8.1, Universal)
@@ -57,4 +52,3 @@ Storage.DeleteSetting(ApplicationData.Current.LocalSettings, "MYKEY");
 
 This library has been written by [Rajen Kishna] (https://twitter.com/rajen_k) with input from [Dave Smits] (https://twitter.com/davesmits).
 This library has been created as a side-project to assist the community and is provided "as is" with no warranty whatsoever and has no relations to our employers (Microsoft and Sparked).
-

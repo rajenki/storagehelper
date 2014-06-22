@@ -21,7 +21,6 @@ namespace StorageHelper.WindowsStore
     {
 #if WINDOWS_PHONE
         private static StorageFolder DefaultFolder = ApplicationData.Current.LocalFolder;
-        private static ApplicationDataContainer DefaultSettings = ApplicationData.Current.LocalSettings;
 #elif NETFX_CORE
         private static StorageFolder DefaultFolder = ApplicationData.Current.RoamingFolder;
         private static ApplicationDataContainer DefaultSettings = ApplicationData.Current.RoamingSettings;
@@ -236,6 +235,7 @@ namespace StorageHelper.WindowsStore
         }
         #endregion
 
+#if !WINDOWS_PHONE
         #region Save Setting
         /// <summary>
 #if WINDOWS_PHONE
@@ -346,5 +346,6 @@ namespace StorageHelper.WindowsStore
             }
         }
         #endregion
+#endif
     }
 }
