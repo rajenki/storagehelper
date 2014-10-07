@@ -1,4 +1,4 @@
-StorageHelper 1.1.4 | Rajen Kishna
+StorageHelper 1.1.6 | Rajen Kishna
 ===============================================================================
 
 StorageHelper is a helper class for Windows Phone and Windows apps to easily 
