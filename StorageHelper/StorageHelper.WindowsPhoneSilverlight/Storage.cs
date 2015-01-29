@@ -26,62 +26,7 @@ namespace StorageHelper.WindowsStore
         private static ApplicationDataContainer DefaultSettings = ApplicationData.Current.RoamingSettings;
 #endif
 
-#if WINDOWS_PHONE
-        #region Save State
-        /// <summary>
-        /// Saves an element with the provided key and value to the application's state.
-        /// </summary>
-        /// <param name="key">The key of the element to save.</param>
-        /// <param name="value">The object to save.</param>
-        /// <returns>True if the element has been saved.</returns>
-        public static bool SaveState(string key, object value)
-        {
-            if (null == value)
-                return false;
 
-            if (PhoneApplicationService.Current.State.ContainsKey(key))
-                PhoneApplicationService.Current.State.Remove(key);
-
-            PhoneApplicationService.Current.State.Add(key, value);
-            return true;
-        }
-        #endregion
-
-        #region Load State
-        /// <summary>
-        /// Gets the value associated with the specified key from the application's state.
-        /// </summary>
-        /// <typeparam name="T">The type of the object at the specified key.</typeparam>
-        /// <param name="key">The key of the element to retrieve.</param>
-        /// <returns>The retrieved element or an empty object of type T if no element was found at the specified key.</returns>
-        public static T LoadState<T>(string key)
-        {
-            object result;
-
-            if (!PhoneApplicationService.Current.State.TryGetValue(key, out result))
-                result = default(T);
-
-            return (T)result;
-        }
-        #endregion
-
-        #region Delete State
-        /// <summary>
-        /// Removes the element with the specified key from the application's state.
-        /// </summary>
-        /// <param name="key">The key of the element to remove.</param>
-        /// <returns>True if the key has been removed or did not exist.</returns>
-        public static bool DeleteState(string key)
-        {
-            if (null == key)
-                return false;
-
-            if (PhoneApplicationService.Current.State.ContainsKey(key))
-                PhoneApplicationService.Current.State.Remove(key);
-            return true;
-        }
-        #endregion
-#endif
 
         #region Save Storage
         /// <summary>
